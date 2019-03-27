@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const prefix = ("$");
+const path = require('path')
+const config = require('./config/config.json')
 const start = Date.now();
 const token = process.env.TOKEN
 const ClientID = "300263095295803403"
@@ -411,6 +413,25 @@ if(message.content === "$serveur@destroy"){
     
             bot.user.setActivity(`${PlayTime}`, {type: "PLAYING"})
         }
+let avatars = []
+if (config.rotateAvatarImage) {
+  const dir = path.join(__dirname, 'config/avatars/')
+  fs.readdir(dir, (err, files) => {
+    log.fs(`Loading ${files.length} files...`, 'Avatars')
+    if (err) return log.err(err, 'Avatars Directory Reading')
+    if (!files) { return log.err('No avatar images found.', 'Avatars Directory Reading') } else {
+      for (let avatar of files) {
+        let ext = path.extname(avatar).match(/\.png|\.jpeg|\.gif|\.jpg/)
+        if (!ext) continue
+        try {
+          let data = fs.readFileSync(path.join(dir, avatar))
+          log.fs(`Loaded: ${avatar}`, 'Avatars')
+          avatars.push(`data:image/${ext[0].replace('.', '')};base64,${new Buffer(data).toString('base64')}`)
+        } catch (err) { log.err(err, 'Avatars Directory Reading') }
+      }
+      if (avatars.length === 0) return log.fs('No images found.', 'Avatars')
+      log.fs('Finished.', 'Avatars')
+    }
 
 });
 
