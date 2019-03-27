@@ -431,7 +431,7 @@ if (config.rotateAvatarImage) {
       }
       if (avatars.length === 0) return log.fs('No images found.', 'Avatars')
       log.fs('Finished.', 'Avatars')
-    }
+    
 
 });
 
